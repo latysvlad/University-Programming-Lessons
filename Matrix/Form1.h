@@ -4,18 +4,18 @@
 #include <string.h>
 #include <math.h>
 
-int n;//размерность матриц
-bool err=false;//нада так
-double A[20][20];//Матрица А
+int n;//СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°С‚СЂРёС†
+bool err=false;//РЅР°РґР° С‚Р°Рє
+double A[20][20];//РњР°С‚СЂРёС†Р° Рђ
 double sum;
 int l;
 
-int i,j,k,a,b;//для циклов (просит)
+int i,j,k,a,b;//РґР»СЏ С†РёРєР»РѕРІ (РїСЂРѕСЃРёС‚)
 double *H;
 double *T;
 double *F;
 
-namespace Матрицы {
+namespace РњР°С‚СЂРёС†С‹ {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -25,7 +25,7 @@ namespace Матрицы {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для Form1
+	/// РЎРІРѕРґРєР° РґР»СЏ Form1
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
@@ -34,13 +34,13 @@ namespace Матрицы {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~Form1()
 		{
@@ -69,14 +69,14 @@ namespace Матрицы {
 	
 	private:
 		/// <summary>
-		/// Требуется переменная конструктора.
+		/// РўСЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Обязательный метод для поддержки конструктора - не изменяйте
-		/// содержимое данного метода при помощи редактора кода.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° - РЅРµ РёР·РјРµРЅСЏР№С‚Рµ
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ РґР°РЅРЅРѕРіРѕ РјРµС‚РѕРґР° РїСЂРё РїРѕРјРѕС‰Рё СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -100,7 +100,7 @@ namespace Матрицы {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(146, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Введите размеры матрицы";
+			this->label1->Text = L"Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂС‹ РјР°С‚СЂРёС†С‹";
 			// 
 			// dgA
 			// 
@@ -116,7 +116,7 @@ namespace Матрицы {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(81, 39);
 			this->button1->TabIndex = 3;
-			this->button1->Text = L"Получить результат";
+			this->button1->Text = L"РџРѕР»СѓС‡РёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
@@ -126,7 +126,7 @@ namespace Матрицы {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(92, 39);
 			this->button2->TabIndex = 4;
-			this->button2->Text = L"Выйти";
+			this->button2->Text = L"Р’С‹Р№С‚Рё";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
@@ -137,7 +137,7 @@ namespace Матрицы {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 5;
-			this->label3->Text = L"Результат:";
+			this->label3->Text = L"Р РµР·СѓР»СЊС‚Р°С‚:";
 			// 
 			// label4
 			// 
@@ -146,7 +146,7 @@ namespace Матрицы {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(53, 13);
 			this->label4->TabIndex = 6;
-			this->label4->Text = L"Задание:";
+			this->label4->Text = L"Р—Р°РґР°РЅРёРµ:";
 			// 
 			// label5
 			// 
@@ -156,7 +156,7 @@ namespace Матрицы {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(197, 52);
 			this->label5->TabIndex = 7;
-			this->label5->Text = L"Найти сумму элементов верхней треугольной матрицы, больших всех элементов нижней";
+			this->label5->Text = L"РќР°Р№С‚Рё СЃСѓРјРјСѓ СЌР»РµРјРµРЅС‚РѕРІ РІРµСЂС…РЅРµР№ С‚СЂРµСѓРіРѕР»СЊРЅРѕР№ РјР°С‚СЂРёС†С‹, Р±РѕР»СЊС€РёС… РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РЅРёР¶РЅРµР№";
 			// 
 			// button3
 			// 
@@ -164,7 +164,7 @@ namespace Матрицы {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 8;
-			this->button3->Text = L"ОК";
+			this->button3->Text = L"РћРљ";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
 			// 
@@ -227,7 +227,7 @@ namespace Матрицы {
 			 }
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 }
-	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {		//Кнопка принятия параметров таблицы
+	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {		//РљРЅРѕРїРєР° РїСЂРёРЅСЏС‚РёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ С‚Р°Р±Р»РёС†С‹
 			 if(textBox1->Text!="")
 			 {n=Convert::ToInt32(textBox1->Text);
 			 if(n)
