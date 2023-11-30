@@ -1,4 +1,4 @@
-//											ФУНКЦИИ
+//											Р¤РЈРќРљР¦РР
 
 
 
@@ -6,13 +6,13 @@
 #include "stdafx.h"
 #include "Hodor.h"
 
-int open(char* FileName1, student*& strustro, file*& Mstr)						//первая функция
+int open(char* FileName1, student*& strustro, file*& Mstr)						//РїРµСЂРІР°СЏ С„СѓРЅРєС†РёСЏ
 {
    FILE* f;
    file str;
    int Kstr = 0; 
    if ((f = fopen(FileName1,"rt")) == NULL )
-			  printf("Файл не удаётся открыть!\n");
+			  printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 			  else
 			  { 
 				puts("\n");
@@ -27,7 +27,7 @@ int open(char* FileName1, student*& strustro, file*& Mstr)						//первая функция
 			   }
 			getch();
 			if((f = fopen(FileName1,"rt")) == NULL )
-				   printf("Файл не удаётся открыть!\n");
+				   printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 				else
 				{
 				  strustro = new student [Kstr];
@@ -37,7 +37,7 @@ int open(char* FileName1, student*& strustro, file*& Mstr)						//первая функция
 					char gr[8], fam[12];
 					if (fscanf(f, "%d%s%s%d%d%d", &N, gr, fam, &o1, &o2, &o3) != 6)
 					{
-					  printf("Ошибка чтения!");
+					  printf("РћС€РёР±РєР° С‡С‚РµРЅРёСЏ!");
 					  break;
 					}
 					strustro[i].num = N;
@@ -51,7 +51,7 @@ int open(char* FileName1, student*& strustro, file*& Mstr)						//первая функция
 				 }
            Mstr = new file [Kstr];
 		   if ((f = fopen(FileName1, "rt")) == NULL )
-			       printf("Файл не удаётся открыть\n");
+			       printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ\n");
 		      else
 			  {
 				  for (int i = 0; i < Kstr; i++)
@@ -64,7 +64,7 @@ int open(char* FileName1, student*& strustro, file*& Mstr)						//первая функция
 }
 
 
-void info(student* strustro, int Kstr )										//вторая функция
+void info(student* strustro, int Kstr )										//РІС‚РѕСЂР°СЏ С„СѓРЅРєС†РёСЏ
 {	FILE*g; char* FileName2 = "F:\\FILES\\g.txt";
 	g = fopen(FileName2,"w");
 	using namespace std;
@@ -92,7 +92,7 @@ void info(student* strustro, int Kstr )										//вторая функция
   }
 	ofstream fout;
 	fout.open("F:\\FILES\\g.txt");
-	fout <<"Список групп из базы данных:\n";
+	fout <<"РЎРїРёСЃРѕРє РіСЂСѓРїРї РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…:\n";
 	fout <<gr1;
 	fout <<"\n";
 	fout <<gr2;
@@ -102,22 +102,22 @@ void info(student* strustro, int Kstr )										//вторая функция
 	fout.close();
 	system ("notepad.exe F:\\FILES\\g.txt");
 
-	printf( "Группа 1: %s\nГруппа 2: %s\nГруппа 3: %s\n", gr1, gr2, gr3);
+	printf( "Р“СЂСѓРїРїР° 1: %s\nР“СЂСѓРїРїР° 2: %s\nР“СЂСѓРїРїР° 3: %s\n", gr1, gr2, gr3);
  
 }
  
 
-void search(char* str, student* strustro, file* Mstr, int Kstr)					//третья функция
+void search(char* str, student* strustro, file* Mstr, int Kstr)					//С‚СЂРµС‚СЊСЏ С„СѓРЅРєС†РёСЏ
 {int x=0,y=0; FILE*g; char* FileName2 = "G:\\FILES\\g.txt";
 	g = fopen(FileName2,"w");
 	using namespace std;
 	ofstream fout;
 	fout.open("F:\\FILES\\g.txt");
-	fout <<"ПОИСК ПО <";
+	fout <<"РџРћРРЎРљ РџРћ <";
 	fout<<str;
 	fout<<"> :\n\n";
 if (strcmp(str, "")!=0) 
-	{fout <<"Результаты пофамильного поиска(полное совпадение):\n\n";
+	{fout <<"Р РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕС„Р°РјРёР»СЊРЅРѕРіРѕ РїРѕРёСЃРєР°(РїРѕР»РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ):\n\n";
 		for (int i = 0; i < Kstr; i++)
 		{	
 			if(strcmp(strustro[i].surname, str)==0)
@@ -128,8 +128,8 @@ if (strcmp(str, "")!=0)
 			
 		}
 		if (x==0)
-				fout <<"Нет совпадений\n\n";
-	 fout <<"Результаты пофамильного поиска(расширенный поиск):\n\n";
+				fout <<"РќРµС‚ СЃРѕРІРїР°РґРµРЅРёР№\n\n";
+	 fout <<"Р РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕС„Р°РјРёР»СЊРЅРѕРіРѕ РїРѕРёСЃРєР°(СЂР°СЃС€РёСЂРµРЅРЅС‹Р№ РїРѕРёСЃРє):\n\n";
 		for (int i = 0; i < Kstr; i++)
 		{
 			if (strstr(strustro[i].surname, str)!=0)
@@ -141,7 +141,7 @@ if (strcmp(str, "")!=0)
 			
 		}
 		if (y==0)
-				fout <<"Нет совпадений\n\n";
+				fout <<"РќРµС‚ СЃРѕРІРїР°РґРµРЅРёР№\n\n";
 	}
 	fout.close();
 	system ("notepad.exe F:\\FILES\\g.txt");
