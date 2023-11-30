@@ -10,7 +10,7 @@
 
 Основные рабочие файлы:
 
-	* 01.cpp
-	* functions.cpp
-	* Hodor.h
+	* 01.cpp;
+	* functions.cpp;
+	* Hodor.h.
  
