@@ -1,12 +1,12 @@
-#include "Голова.h"
+#include "Р“РѕР»РѕРІР°.h"
 
-void CreateLuggageFile(char* FileName, int Pb)				//Функция создания файла
+void CreateLuggageFile(char* FileName, int Pb)				//Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р°
 {
    FILE* f;
    TLuggage* B = NULL; 
    if ((fopen_s(&f, FileName, "wb")) != NULL )
    {
-      printf("Файл уже создан!\n");
+      printf("Р¤Р°Р№Р» СѓР¶Рµ СЃРѕР·РґР°РЅ!\n");
 	  Sleep(2000);
    }
    else
@@ -16,22 +16,22 @@ void CreateLuggageFile(char* FileName, int Pb)				//Функция создания файла
 	 for (int i = 0; i < Pb; i++)
 	  {
 		system("cls");
-		printf("Введите ФИО пассажира %d\n", i + 1);
+		printf("Р’РІРµРґРёС‚Рµ Р¤РРћ РїР°СЃСЃР°Р¶РёСЂР° %d\n", i + 1);
 		gets_s(B[i].N);
 	    gets_s(B[i].N);
-		printf("Введите количество вещей %d\n", i + 1);
+		printf("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµС‰РµР№ %d\n", i + 1);
 		scanf_s("%d", &B[i].M);
-		printf("Введите общий вес вещей %d\n", i + 1);
+		printf("Р’РІРµРґРёС‚Рµ РѕР±С‰РёР№ РІРµСЃ РІРµС‰РµР№ %d\n", i + 1);
 		scanf_s("%d", &B[i].W);
 		fwrite(&B[i], sizeof(TLuggage), 1, f);
-		printf("Файл успешно создан");
+		printf("Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ");
 	  }
 	 fclose(f);
 	 delete [] B;
    }
 }
 
-void BigSearch(char* FileName)								//Функция поиска пассажира с большим багажом
+void BigSearch(char* FileName)								//Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РїР°СЃСЃР°Р¶РёСЂР° СЃ Р±РѕР»СЊС€РёРј Р±Р°РіР°Р¶РѕРј
 {
   FILE* f;
   int Pb;
@@ -39,14 +39,14 @@ void BigSearch(char* FileName)								//Функция поиска пассажира с большим багаж
   bool* MF = NULL; 
   if ((fopen_s(&f, FileName, "rb")) != NULL)
   {
-	printf("Файл не удаётся открыть!\n");
+	printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 	Sleep(2000);
   }
   else
   {
 	system("cls");
     fread(&Pb, sizeof(int), 1, f);
-	printf("Пассажир с самым объёмным и тяжёлым багажом:\n");
+	printf("РџР°СЃСЃР°Р¶РёСЂ СЃ СЃР°РјС‹Рј РѕР±СЉС‘РјРЅС‹Рј Рё С‚СЏР¶С‘Р»С‹Рј Р±Р°РіР°Р¶РѕРј:\n");
 	if (Pb > 0) 
 	{
 	  B = new TLuggage [Pb];
@@ -68,7 +68,7 @@ void BigSearch(char* FileName)								//Функция поиска пассажира с большим багаж
 						p=0;
 			}
 		  if(p==0)
-			  printf("Нет удовлетворяющего условиям багажа\n");
+			  printf("РќРµС‚ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РµРіРѕ СѓСЃР»РѕРІРёСЏРј Р±Р°РіР°Р¶Р°\n");
 		  else puts(B[0].N);
 		  }
 	  else puts(B[max].N);
@@ -77,7 +77,7 @@ void BigSearch(char* FileName)								//Функция поиска пассажира с большим багаж
 
 			
 	 }
-	 else printf("Файл не заполнен");
+	 else printf("Р¤Р°Р№Р» РЅРµ Р·Р°РїРѕР»РЅРµРЅ");
 
   Sleep(2000);
   delete [] B;
@@ -86,7 +86,7 @@ void BigSearch(char* FileName)								//Функция поиска пассажира с большим багаж
   }
 }
 
-void LongSearch(char* FileName)										//Функция поиска пассажира с длиннейшей фамилией
+void LongSearch(char* FileName)										//Р¤СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° РїР°СЃСЃР°Р¶РёСЂР° СЃ РґР»РёРЅРЅРµР№С€РµР№ С„Р°РјРёР»РёРµР№
 {
   int i, j;
   char* fam;
@@ -98,11 +98,11 @@ void LongSearch(char* FileName)										//Функция поиска пассажира с длиннейшей
   system("cls");
   if ((fopen_s(&f, FileName, "rb")) != NULL)
   {
-	 printf("Файл не удаётся открыть!\n");
+	 printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 	 Sleep(2000);
   }
   else
-  {	  printf("Номер пассажира с наиболее длинной фамилией:\n");
+  {	  printf("РќРѕРјРµСЂ РїР°СЃСЃР°Р¶РёСЂР° СЃ РЅР°РёР±РѕР»РµРµ РґР»РёРЅРЅРѕР№ С„Р°РјРёР»РёРµР№:\n");
 	  fread(&Pb, sizeof(int), 1, f);
 	  B = new TLuggage [Pb];
 	  for (int i = 0; i < Pb; i++) 
@@ -128,17 +128,17 @@ void LongSearch(char* FileName)										//Функция поиска пассажира с длиннейшей
  }
 }
 
-void PrintRezults(char* FileName)									//Функция вывода результата
+void PrintRezults(char* FileName)									//Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЂРµР·СѓР»СЊС‚Р°С‚Р°
 {
   FILE* f;
   int Pb;
   TLuggage* B = NULL; 
   system("cls");
-  printf("		Исходный файл:\n\n");
-  printf(" №		 ФИО    Колво вещей    Вес вещей\n"); 
+  printf("		РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р»:\n\n");
+  printf(" в„–		 Р¤РРћ    РљРѕР»РІРѕ РІРµС‰РµР№    Р’РµСЃ РІРµС‰РµР№\n"); 
   if ((fopen_s(&f, FileName, "rb")) != NULL)
   {
-	printf("Файл не удаётся открыть!\n");
+	printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 	Sleep(2000);
   }
   else
@@ -156,20 +156,20 @@ void PrintRezults(char* FileName)									//Функция вывода результата
 printf("\n");
 
 
-//Кусок поиска багажа
+//РљСѓСЃРѕРє РїРѕРёСЃРєР° Р±Р°РіР°Р¶Р°
 	 FILE* f;
   int Pb;
   TLuggage* B = NULL; 
   bool* MF = NULL; 
   if ((fopen_s(&f, FileName, "rb")) != NULL)
   {
-	printf("Файл не удаётся открыть!\n");
+	printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 	Sleep(2000);
   }
   else
   {
     fread(&Pb, sizeof(int), 1, f);
-	printf("Пассажир с самым объёмным и тяжёлым багажом:\n");
+	printf("РџР°СЃСЃР°Р¶РёСЂ СЃ СЃР°РјС‹Рј РѕР±СЉС‘РјРЅС‹Рј Рё С‚СЏР¶С‘Р»С‹Рј Р±Р°РіР°Р¶РѕРј:\n");
 	if (Pb > 0) 
 	{
 	  B = new TLuggage [Pb];
@@ -191,7 +191,7 @@ printf("\n");
 						p=0;
 			}
 		  if(p==0)
-			  printf("Нет удовлетворяющего условиям багажа\n");
+			  printf("РќРµС‚ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РµРіРѕ СѓСЃР»РѕРІРёСЏРј Р±Р°РіР°Р¶Р°\n");
 		  else puts(B[0].N);
 		  }
 	  else puts(B[max].N);
@@ -200,11 +200,11 @@ printf("\n");
 
 			
 	 }
-	 else printf("Файл не заполнен");
+	 else printf("Р¤Р°Р№Р» РЅРµ Р·Р°РїРѕР»РЅРµРЅ");
 printf("\n");
 
 
- //Кусок поиска фамилии
+ //РљСѓСЃРѕРє РїРѕРёСЃРєР° С„Р°РјРёР»РёРё
 	 int i, j;
   char* fam;
   char tmp[20];
@@ -213,11 +213,11 @@ printf("\n");
   TLuggage* B = NULL;
   if ((fopen_s(&f, FileName, "rb")) != NULL)
   {
-	 printf("Файл не удаётся открыть!\n");
+	 printf("Р¤Р°Р№Р» РЅРµ СѓРґР°С‘С‚СЃСЏ РѕС‚РєСЂС‹С‚СЊ!\n");
 	 Sleep(2000);
   }
   else
-  {	  printf("Номер пассажира с наиболее длинной фамилией:\n");
+  {	  printf("РќРѕРјРµСЂ РїР°СЃСЃР°Р¶РёСЂР° СЃ РЅР°РёР±РѕР»РµРµ РґР»РёРЅРЅРѕР№ С„Р°РјРёР»РёРµР№:\n");
 	  fread(&Pb, sizeof(int), 1, f);
 	  B = new TLuggage [Pb];
 	  for (int i = 0; i < Pb; i++) 
